@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.floating-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.5); }
+  100% { box-shadow: 0 0 30px rgba(14, 165, 233, 0.8); }
+}
+
+/* Simplified text effect for better readability */
+.holographic-text {
+  background: linear-gradient(45deg, #0369a1, #0284c7, #0ea5e9, #0369a1);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holographic-shift 4s ease-in-out infinite;
+}
+
+@keyframes holographic-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Subtle glow effect for better readability */
+.neon-glow {
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+}
+
+
+/* Liquid morphing background */
+.liquid-bg {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background-size: 400% 400%;
+  animation: liquid-morph 8s ease-in-out infinite;
+}
+
+@keyframes liquid-morph {
+  0%, 100% { 
+    background-position: 0% 50%;
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  25% { 
+    background-position: 100% 50%;
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  50% { 
+    background-position: 100% 100%;
+    border-radius: 50% 60% 30% 60%/30% 50% 70% 40%;
+  }
+  75% { 
+    background-position: 0% 100%;
+    border-radius: 60% 40% 60% 30%/70% 30% 50% 60%;
+  }
+}
+
+/* Particle trail effect */
+.particle-trail {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-trail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+  animation: particle-float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes particle-float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  33% { 
+    transform: translateY(-10px) rotate(120deg);
+    opacity: 0.4;
+  }
+  66% { 
+    transform: translateY(5px) rotate(240deg);
+    opacity: 0.8;
+  }
+}
+
+/* Crystalline button effect */
+.crystal-button {
+  position: relative;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  overflow: hidden;
+}
+
+.crystal-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: crystal-shine 3s ease-in-out infinite;
+}
+
+@keyframes crystal-shine {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+/* Subtle glow effect */
+.subtle-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.subtle-glow:hover {
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Aurora wave effect */
+.aurora-wave {
+  position: relative;
+  background: linear-gradient(270deg, #00ff88, #0088ff, #8800ff, #ff0088);
+  background-size: 400% 400%;
+  animation: aurora-flow 8s ease-in-out infinite;
+}
+
+@keyframes aurora-flow {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+/* Magnetic field effect */
+.magnetic-field {
+  position: relative;
+}
+
+.magnetic-field::before,
+.magnetic-field::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #ff006e, #00f5ff, #ffbe0b, #ff006e) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: magnetic-rotate 4s linear infinite;
+}
+
+.magnetic-field::after {
+  animation-direction: reverse;
+  animation-duration: 6s;
+}
+
+@keyframes magnetic-rotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Prismatic reflection effect */
+.prismatic {
+  position: relative;
+  background: linear-gradient(45deg, 
+    hsl(0, 100%, 50%) 0%,
+    hsl(60, 100%, 50%) 16.66%,
+    hsl(120, 100%, 50%) 33.33%,
+    hsl(180, 100%, 50%) 50%,
+    hsl(240, 100%, 50%) 66.66%,
+    hsl(300, 100%, 50%) 83.33%,
+    hsl(360, 100%, 50%) 100%
+  );
+  background-size: 200% 200%;
+  animation: prismatic-shift 5s ease-in-out infinite;
+}
+
+@keyframes prismatic-shift {
+  0%, 100% { 
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  25% { 
+    background-position: 100% 0%;
+    filter: hue-rotate(90deg) saturate(1.2);
+  }
+  50% { 
+    background-position: 100% 100%;
+    filter: hue-rotate(180deg) saturate(0.8);
+  }
+  75% { 
+    background-position: 0% 100%;
+    filter: hue-rotate(270deg) saturate(1.1);
+  }
+}
+
+/* Energy pulse effect */
+.energy-pulse {
+  position: relative;
+  animation: energy-throb 2s ease-in-out infinite;
+}
+
+.energy-pulse::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #ff0080, #00ff80, #8000ff, #ff0080);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: energy-flow 3s linear infinite;
+  filter: blur(10px);
+}
+
+@keyframes energy-throb {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes energy-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
