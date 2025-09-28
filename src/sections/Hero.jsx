@@ -45,7 +45,6 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-4xl sm:text-6xl lg:text-7xl font-heading font-bold text-gray-900 dark:text-white"
           >
-            Ahmed Chebli
           </motion.h1>
 
           {/* Subtitle */}
@@ -71,19 +70,17 @@ const Hero = () => {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => {
                 const projectsSection = document.querySelector('#projects')
                 if (projectsSection) {
                   projectsSection.scrollIntoView({ behavior: 'smooth' })
                 }
               }}
-              className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl energy-pulse"
+              className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               View My Work
-            </motion.button>
+            </button>
 
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}

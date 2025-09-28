@@ -57,7 +57,6 @@ const Header = () => {
               }}
               className="text-2xl font-heading font-bold text-gray-900 dark:text-white"
             >
-              Ahmed Chebli
             </a>
           </motion.div>
 
