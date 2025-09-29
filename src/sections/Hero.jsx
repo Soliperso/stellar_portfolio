@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ChevronDown, Download } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import Scene3D from '../components/Scene3D'
 
 const Hero = () => {
@@ -82,14 +82,6 @@ const Hero = () => {
               View My Work
             </button>
 
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 px-8 py-4 border-2 border-primary-700 text-primary-700 dark:text-primary-400 hover:bg-primary-700 hover:text-white dark:hover:text-white rounded-lg text-lg font-medium transition-all duration-200"
-            >
-              <Download size={20} />
-              <span>Download CV</span>
-            </motion.button>
           </motion.div>
 
           {/* Skills Preview */}
@@ -124,7 +116,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6 }}
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
