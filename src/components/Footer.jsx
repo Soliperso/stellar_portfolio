@@ -18,7 +18,7 @@ const Footer = () => {
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:ahmed@example.com',
+      href: 'mailto:chah762002@yahoo.fr',
       color: 'hover:text-red-500'
     },
     {
@@ -92,8 +92,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social Links */}
-          <div className="space-y-4">
+          {/* Social Links - Temporarily Disabled */}
+          {/* <div className="space-y-4">
             <motion.h4
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ const Footer = () => {
                 )
               })}
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Section */}
