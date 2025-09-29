@@ -265,8 +265,14 @@ const Projects = () => {
               {/* Modal Header */}
               <div className="relative h-64 bg-gradient-to-br from-primary-400 to-accent-500">
                 <button
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 p-2 bg-white/20 rounded-lg backdrop-blur-sm text-white hover:bg-white/30 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    setSelectedProject(null)
+                  }}
+                  className="absolute top-4 right-4 p-3 bg-white/20 rounded-lg backdrop-blur-sm text-white hover:bg-white/30 transition-colors duration-200 z-10 cursor-pointer"
+                  type="button"
+                  aria-label="Close modal"
                 >
                   <X size={24} />
                 </button>
