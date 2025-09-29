@@ -19,15 +19,15 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'ahmed@example.com',
-      href: 'mailto:ahmed@example.com',
+      value: 'chah762002@yahoo.fr',
+      href: 'mailto:chah762002@yahoo.fr',
       color: 'text-red-500'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '510 459-7608',
+      href: 'tel:+15104597608',
       color: 'text-green-500'
     },
     {
@@ -81,12 +81,26 @@ const Contact = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      // Prepare form data for Netlify
+      const form = e.target
+      const formData = new FormData(form)
+      
+      // Submit to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        throw new Error('Form submission failed')
+      }
     } catch (error) {
+      console.error('Form submission error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -178,8 +192,8 @@ const Contact = () => {
                 })}
               </div>
 
-              {/* Social Links */}
-              <div className="pt-8">
+              {/* Social Links - Temporarily Disabled */}
+              {/* <div className="pt-8">
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Follow Me
                 </h4>
@@ -202,7 +216,7 @@ const Contact = () => {
                     )
                   })}
                 </div>
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Contact Form */}
@@ -211,7 +225,23 @@ const Contact = () => {
                 Send a Message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* Netlify form detection */}
+                <input type="hidden" name="form-name" value="contact" />
+                
+                {/* Honeypot field for spam protection */}
+                <div style={{ display: 'none' }}>
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
                     whileFocus={{ scale: 1.02 }}
@@ -329,12 +359,12 @@ const Contact = () => {
                     {submitStatus === 'success' ? (
                       <>
                         <CheckCircle size={20} />
-                        <span>Message sent successfully! I'll get back to you soon.</span>
+                        <span>Thank you! Your message has been received. I'll get back to you soon.</span>
                       </>
                     ) : (
                       <>
                         <AlertCircle size={20} />
-                        <span>Failed to send message. Please try again or contact me directly.</span>
+                        <span>Sorry, there was an error sending your message. Please try again or contact me directly.</span>
                       </>
                     )}
                   </motion.div>
